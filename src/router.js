@@ -6,6 +6,7 @@ import light from './pages/light';
 import cube from './pages/cube';
 import pointLight from './pages/pointLight';
 import jointModel from './pages/jointModel';
+import mouseRotate from './pages/mouseRotate';
 
 export default [
   {
@@ -28,7 +29,7 @@ export default [
   },
   {
     path: '/cube',
-    component: cube,
+    component: cube, 
     title: '立方体',
     children: [],
   },
@@ -48,6 +49,12 @@ export default [
     path: '/jointModel',
     component: jointModel,
     title: '组合模型',
+    children: [],
+  },
+  {
+    path: '/mouseRotate',
+    component: mouseRotate,
+    title: '鼠标控制旋转',
     children: [],
   },
   {
