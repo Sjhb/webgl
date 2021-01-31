@@ -5,10 +5,10 @@ let catchMouve = false;
 let startX = 0;
 let startY = 0;
 let lastMouseDown = 0;
-// 鼠标控制旋转
+// 选择模型
 export default function MouseRotate () {
-  const [xRotate, setXRotate] = useState(0);
-  const [yRotate, setYRotate] = useState(0);
+  const [xRotate, setXRotate] = useState(20);
+  const [yRotate, setYRotate] = useState(-54);
   const [rect, setReact] = useState(null);
   const domRef = createRef();
   const F = {};

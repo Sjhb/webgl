@@ -8,6 +8,7 @@ import pointLight from './pages/pointLight';
 import jointModel from './pages/jointModel';
 import mouseRotate from './pages/mouseRotate';
 import pickModel from './pages/pickModel';
+import fog from './pages/fog';
 
 export default [
   {
@@ -62,6 +63,12 @@ export default [
     path: '/pickModel',
     component: pickModel,
     title: '选中物体',
+    children: [],
+  },
+  {
+    path: '/fog',
+    component: fog,
+    title: '雾化',
     children: [],
   },
   {
