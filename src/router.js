@@ -7,6 +7,7 @@ import cube from './pages/cube';
 import pointLight from './pages/pointLight';
 import jointModel from './pages/jointModel';
 import mouseRotate from './pages/mouseRotate';
+import pickModel from './pages/pickModel';
 
 export default [
   {
@@ -55,6 +56,12 @@ export default [
     path: '/mouseRotate',
     component: mouseRotate,
     title: '鼠标控制旋转',
+    children: [],
+  },
+  {
+    path: '/pickModel',
+    component: pickModel,
+    title: '选中物体',
     children: [],
   },
   {
