@@ -9,6 +9,7 @@ import jointModel from './pages/jointModel';
 import mouseRotate from './pages/mouseRotate';
 import pickModel from './pages/pickModel';
 import fog from './pages/fog';
+import roundPoint from './pages/roundPoint';
 
 export default [
   {
@@ -69,6 +70,12 @@ export default [
     path: '/fog',
     component: fog,
     title: '雾化',
+    children: [],
+  },
+  {
+    path: '/roundPoint',
+    component: roundPoint,
+    title: '绘制圆形的点',
     children: [],
   },
   {

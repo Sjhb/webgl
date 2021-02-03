@@ -1,11 +1,10 @@
 import React, { createRef, useEffect } from 'react';
 import getWebGLContext from 'getWebGLContext';
 
-export default function Circle(params) {
+export default function Circle() {
   const dom = createRef();
   useEffect(() => {
     if (dom.current) {
-      const rect = dom.current.getBoundingClientRect();
       const VERTEX_SHADER_SOURCE = `
         attribute vec4 a_Position;
         void main () {
@@ -15,16 +14,11 @@ export default function Circle(params) {
       const FRAGMENT_SHADER_SOURCE = `
         precision mediump float;
         uniform float u_Width;
-        // uniform float u_OffsetX;
-        // uniform float u_OffsetY;
         void main () {
           float x = u_Width / 2.0 - gl_FragCoord.x;
           float y = u_Width / 2.0 - gl_FragCoord.y;
-          // float b = gl_FragCoord.x / u_Width;
-          // float c = (gl_FragCoord.y - a);
           float r = sqrt(x * x + y * y);
           float percent = r / (u_Width / 4.0) * 0.5;
-          // gl_FragColor = vec4(1.0, 0.0, 0.0, r /u_Width);
           gl_FragColor = vec4(percent, 0.0, 1.0 - percent, 1.0);
         }
       `;
@@ -49,12 +43,8 @@ export default function Circle(params) {
 
       const a_Position = gl.getAttribLocation(program, 'a_Position');
       const u_Width = gl.getUniformLocation(program, 'u_Width');
-      // const u_OffsetX = gl.getUniformLocation(program, 'u_OffsetX');
-      // const u_OffsetY = gl.getUniformLocation(program, 'u_OffsetY');
       const glWidth = gl.drawingBufferWidth;
       gl.uniform1f(u_Width, glWidth);
-      // gl.uniform1f(u_OffsetX, rect.left);
-      // gl.uniform1f(u_OffsetY, rect.top);
 
       let points = [0.0, 0.0,  0.5, 0.0];
       const num = 100;
@@ -64,12 +54,6 @@ export default function Circle(params) {
         points.push(Math.sin(angle * i) * 0.5);
       }
       points = new Float32Array(points);
-
-      // let points = new Float32Array([
-      //   -1.0, -1.0,  -1, 1.0, 1.0,1.0, 1.0, - 1.0
-      // ]);
-      // const num = 2;
-
       const buf = gl.createBuffer();
       gl.bindBuffer(gl.ARRAY_BUFFER, buf);
       gl.bufferData(gl.ARRAY_BUFFER, points, gl.STATIC_DRAW);
