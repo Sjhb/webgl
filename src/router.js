@@ -11,6 +11,7 @@ import pickModel from './pages/pickModel';
 import fog from './pages/fog';
 import roundPoint from './pages/roundPoint';
 import blened from './pages/blened';
+import multiProgram from './pages/multiProgram';
 
 export default [
   {
@@ -83,6 +84,12 @@ export default [
     path: '/blened',
     component: blened,
     title: 'a混合',
+    children: [],
+  },
+  {
+    path: '/multiProgram',
+    component: multiProgram,
+    title: '切换着色器',
     children: [],
   },
   {
