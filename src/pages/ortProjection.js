@@ -45,7 +45,7 @@ export default function OrtProjection () {
       gl.clearColor(0.0,0.0,0.0,1.0);
 
       const aPosition = gl.getAttribLocation(program, 'a_position');
-      const aColor = gl.getUniformLocation(program, 'a_color');
+      const aColor = gl.getAttribLocation(program, 'a_color');
       const modelViewMatrix = gl.getUniformLocation(program, 'u_modelViewMatrix');
       const projMatrix = gl.getUniformLocation(program, 'u_projMatrix');
 
@@ -92,7 +92,9 @@ export default function OrtProjection () {
   
         gl.clear(gl.COLOR_BUFFER_BIT);
         gl.drawArrays(gl.TRIANGLES, 0, 9); 
-        pRef.current.innerHTML= `near:${near}----far:${far}`
+        if (pRef.current) {
+          pRef.current.innerHTML= `near:${near}----far:${far}`
+        }
       }
       draw();
     }

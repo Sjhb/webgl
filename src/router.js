@@ -12,6 +12,7 @@ import fog from './pages/fog';
 import roundPoint from './pages/roundPoint';
 import blened from './pages/blened';
 import multiProgram from './pages/multiProgram';
+import frameBufferObj from './pages/frameBufferObj';
 
 export default [
   {
@@ -93,8 +94,15 @@ export default [
     children: [],
   },
   {
+    path: '/frameBufferObj',
+    component: frameBufferObj,
+    title: '渲染到纹理',
+    children: [],
+  },
+  {
     path: '/',
     component: Index,
+    title: '纹理',
     children: [],
-  }
+  },
 ]
