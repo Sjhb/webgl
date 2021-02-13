@@ -78,7 +78,6 @@ export default function OrtProjection () {
           case 'ArrowDown': {near -= 0.01;break;}
           case 'ArrowLeft': {far += 0.01;break;}
           case 'ArrowRight': {far -= 0.01;break;}
-
         }
         draw();
       })

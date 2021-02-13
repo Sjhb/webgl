@@ -13,8 +13,10 @@ import roundPoint from './pages/roundPoint';
 import blened from './pages/blened';
 import multiProgram from './pages/multiProgram';
 import frameBufferObj from './pages/frameBufferObj';
+import shadow from './pages/shadow';
+import test from './pages/test';
 
-export default [
+const router = [
   {
     path: '/circle',
     component: Circle,
@@ -100,9 +102,22 @@ export default [
     children: [],
   },
   {
+    path: '/shadow',
+    component: shadow,
+    title: '阴影',
+    children: [],
+  },
+  {
+    path: '/test',
+    component: test,
+    title: 'test',
+    children: [],
+  },
+  {
     path: '/',
     component: Index,
     title: '纹理',
     children: [],
   },
-]
+];
+export default router;

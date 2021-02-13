@@ -167,11 +167,10 @@ export default function FrameBufferObj () {
         gl.enableVertexAttribArray(aTexCoord);
 
         gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 1);
-        gl.activeTexture(gl.TEXTURE1);
+        gl.activeTexture(gl.TEXTURE0);
         gl.bindTexture(gl.TEXTURE_2D, fbo.texture);
         gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
-        gl.texImage2D(gl.TEXTURE_2D, 1, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, image);
-        gl.uniform1i(uSampler, 1);
+        gl.uniform1i(uSampler, 0);
 
         const mvpMatrix = new Matrix4();
         const viewMatrix = new Matrix4();
@@ -192,15 +191,17 @@ export default function FrameBufferObj () {
         
         gl.bindFramebuffer(gl.FRAMEBUFFER, null);
         gl.viewport(0, 0, canvasRef.current.width, canvasRef.current.height);
-        gl.clearColor(1.0,1.0,1.0,1.0);
+        gl.clearColor(0.0,0.4,0.4,1.0);
         gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
 
         drawSquare(gl, fbo);
       }
       function render () {
-        angle += 1;
-        draw();
-        window.requestAnimationFrame(render);
+        if (canvasRef.current) {
+          angle += 1;
+          draw();
+          window.requestAnimationFrame(render);
+        }
       }
     }
   }, [canvasRef])
